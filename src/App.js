@@ -9,19 +9,22 @@ const App = () => {
 
   const firstCharacters =[
     {
-    id: 0,
+    
     name: "brian",
+    height: "164",
 
   },
 
   {
-    id: 1,
+    
     name: "tracy",
+    height: "165",
 
   },
   {
-    id:2,
+  
     name: "robert",
+    height: "145",
   }
 
 ]
@@ -31,10 +34,10 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
   useEffect(()=>{
-    axios.get("https://swapi.dev/api/people")
+    axios.get("https://swapi.dev/api/people/")
 .then (res=>{
- console.log(res.data.results)//this is the path to the array
-  setCharacters(res.data.results)
+ setCharacters(res.data)//this is the path to the array
+ 
   
 })
 .catch(err=> console.log(err))
