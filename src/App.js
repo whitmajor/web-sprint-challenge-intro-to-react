@@ -1,6 +1,9 @@
 import React,{useState, useEffect} from 'react';
 import axios from "axios"
-import Character from "./components/Character"
+import Character from "../src/components/Character"
+
+
+
 
 
 const App = () => {
@@ -9,26 +12,29 @@ const App = () => {
 
   const firstCharacters =[
     {
-    
+   
     name: "brian",
     height: "164",
 
   },
 
   {
-    
+ 
     name: "tracy",
     height: "165",
 
   },
   {
-  
+
     name: "robert",
     height: "145",
   }
 
 ]
   const [characters, setCharacters] = useState(firstCharacters)
+
+  
+  
 
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
@@ -46,14 +52,14 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
+   
       {
     characters.map(character=>{
-     return <article> 
-      <h2>{character.name}</h2>
-       </article>
-    })
-
-      }
+     return <Character>
+     <h2> {character.name} </h2>
+      </Character>
+      
+    })}
   
     </div>
   );
